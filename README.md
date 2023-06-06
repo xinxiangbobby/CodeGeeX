@@ -73,6 +73,12 @@ git clone git@github.com:THUDM/CodeGeeX.git
 cd CodeGeeX
 pip install -e .
 ```
+Or use [CodeGeeX docker](https://hub.docker.com/r/codegeex/codegeex) to quickly set up the environment (with [nvidia-docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) installed):
+```bash
+docker pull codegeex/codegeex:latest
+# To enable GPU support, clarify device ids with --device
+docker run --gpus '"device=0,1"' -it --ipc=host --name=codegeex codegeex/codegeex
+```
 
 ### Model Weights
 
@@ -108,7 +114,7 @@ Based on CodeGeeX, we also develop free extentions for VS Code and Jetbrains IDE
 For VS Code, search "codegeex" in Marketplace or install it [here](https://marketplace.visualstudio.com/items?itemName=aminer.codegeex). Detailed instructions can be found in 
 [VS Code Extension Guidance](vscode-extension/README.md). For developers, we have also released the source code in [codegeex-vscode-extension](https://github.com/CodeGeeX/codegeex-vscode-extension), please follow [QuickStart](https://github.com/CodeGeeX/codegeex-vscode-extension/blob/main/doc/quickstart.md) to start development.
 
-For Jetbrains IDEs, search "codegeex" in Plugins or intall it [here](https://plugins.jetbrains.com/plugin/20587-codegeex). 
+For Jetbrains IDEs, search "codegeex" in Plugins or install it [here](https://plugins.jetbrains.com/plugin/20587-codegeex). 
 Make sure your IDE version is 2021.1 or later. CodeGeeX now supports IntelliJ IDEA, PyCharm, GoLand, CLion, Android Studio, AppCode, Aqua, DataSpell, DataGrip, Rider, RubyMine, and WebStorm. 
 
 ## CodeGeeX: Architecture, Code Corpus, and Implementation
